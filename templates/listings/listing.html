@@ -1,20 +1,15 @@
+{% extends "_base.html" %}
 {% load static %}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% block title %}Edit Listing{% endblock %}
 
-    <h1>One Listing</h1>
+{% block content %}
+    <h1>Listing</h1>
 
     <p>{{ listing.title }}</p>
     <p>${{ listing.price }}</p>
     <p>{{ listing.address }}</p>
-
-</body>
-</html>
+    <p>
+        {# This has to be changed for namespace use listings:update-listing #}
+        <a href="/listings/{{ listing.id }}/edit/">Edit</a> | <a href="/listings/{{ listing.id }}/delete">Delete</a>
+    </p>
+{% endblock %}
